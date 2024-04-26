@@ -16,6 +16,21 @@ def calc_average_temperature(splist):
 def calc_min_max_temperature(splist):
     return min(splist), max(splist)
     
+def sort_temperature(splist):
+    splist.sort()
+    return splist
+
+def calc_median_temperature(splist):
+    splist = sort_temperature(splist)
+    num = len(splist)
+    if num%2 == 1:
+        numi = num//2 
+        return splist[numi]
+    else:
+        numi = num/2 
+        total = splist[numi] + splist[numi-1]
+        return total/2
+
 
 def main():
     print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python")
@@ -23,7 +38,8 @@ def main():
     print(x)
     print(calc_average_temperature(x))
     print(calc_min_max_temperature(x))
-
+    print(sort_temperature(x))
+    print(calc_median_temperature(x))
 
 if __name__ == "__main__":
     main()
